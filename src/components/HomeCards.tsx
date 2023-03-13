@@ -5,7 +5,7 @@ const HomeCards = () => {
   const { data } = useFetch()
 
   return (
-    <div className='grid grid-cols-3 gap-3 max-w-[1240px] mx-auto pt-5 px-4'>
+    <div className='grid grid-cols-1 pt-5 px-4 md:grid-cols-3 md:gap-3 md:max-w-[1240px] md:mx-auto'>
       <div className="bg-white rounded-lg shadow-md overflow-hidden text-center border border-indigo-600 font-serif">
         {/* <img src={imageSrc} alt="" className="w-full h-48 object-cover" /> */}
         <div className="p-4">
