@@ -1,6 +1,8 @@
 import { useState, useEffect } from 'react';
 import {db} from '../config/config';
 import { collection, getDocs } from 'firebase/firestore';
+import { useDispatch } from 'react-redux';
+import { setCards } from '../components/homecards/homeCardsSlice';
 
 interface articleObj {
     author: string;
@@ -15,6 +17,8 @@ interface articleObj {
   }
 
 const useFetch = () => {
+    const dispatch = useDispatch()
+
     const [data, setData] = useState<articleObj[]>([]);
     const infoCollection = collection(db, "artigos");
 
@@ -27,6 +31,7 @@ const useFetch = () => {
         getInfo(); 
       }, []);
 
+      dispatch(setCards(data))
       console.log(data)
 
   return {data}

@@ -5,7 +5,7 @@ import { RxAvatar } from 'react-icons/rx'
 const Navbar = () => {
   return (
     <>
-      <div className="flex flex-row justify-end items-center px-4 md:max-w-[1240px] md:mx-auto">
+      <div className="flex flex-row justify-end items-center px-4 pt-3 md:max-w-[1240px] md:mx-auto">
           <p className='px-2'>About</p>
           <p className='px-2'>Login</p>
           <RxAvatar className='w-6 h-6' />
