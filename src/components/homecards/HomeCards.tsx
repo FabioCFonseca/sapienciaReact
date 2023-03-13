@@ -1,10 +1,12 @@
 import React from 'react'
-import { allArticles } from './homeCardsSlice'
+import { setCards } from './homeCardsSlice'
 import { useSelector } from 'react-redux'
 
 const HomeCards = () => {
-  const articlesObj = useSelector(allArticles)
+  const articlesObj = useSelector(setCards)
   console.log(articlesObj)
+  
+  
 
   return (
     <div className='grid grid-cols-1 pt-5 px-4 md:grid-cols-3 md:gap-3 md:max-w-[1240px] md:mx-auto'>

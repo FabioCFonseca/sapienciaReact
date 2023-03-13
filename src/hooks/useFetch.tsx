@@ -25,14 +25,17 @@ const useFetch = () => {
     useEffect(() => {
         const getInfo = async () => {
             const data = await getDocs(infoCollection) 
-            setData(data.docs.map((doc) => ({...doc.data(), id: doc.id } as articleObj)))  
+            dispatch(setCards(data.docs.map((doc) => ({...doc.data()} as articleObj)))) 
+            
+            setData(data.docs.map((doc) => ({...doc.data(), id: doc.id } as articleObj))) 
+             
         };
         
         getInfo(); 
       }, []);
 
-      dispatch(setCards(data))
-      console.log(data)
+      
+      
 
   return {data}
 }

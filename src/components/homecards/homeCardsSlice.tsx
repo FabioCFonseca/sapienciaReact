@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
- interface data {
+ interface cardObj {
      author: string;
      creationDate: {
        seconds: number;
@@ -12,21 +12,21 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit"
      title: string;
    }
 
-  interface dataArr {
-    cards: data[];
+  interface cardArr {
+    cards: cardObj[];
   } 
 
   const homeCardsSlice = createSlice({
     name: 'homeCardSlice',
-    initialState: { cards: [] } as dataArr,
+    initialState: { cards: [] } as cardArr,
     reducers: {
-      setCards(state, action: PayloadAction<data[]> ) {
+      setCards(state, action: PayloadAction<any> ) {
         state.cards = action.payload
       }
     }
   })
 
-export const allArticles = (state: any) => state.homeCardSlice
+//export const allArticles = (state: cardObj) => state.homeCardSlice
 
 export const { setCards } = homeCardsSlice.actions
 
