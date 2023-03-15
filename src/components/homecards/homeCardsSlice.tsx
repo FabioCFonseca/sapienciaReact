@@ -1,26 +1,20 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
- interface cardObj {
-     author: string;
-     creationDate: {
-       seconds: number;
-       nanoseconds: number;
-     };
-     description: string;
-     id: string;
-     text: string;
-     title: string;
-   }
+  interface initState {
+    cards: any[]
+  }
 
-  interface cardArr {
-    cards: cardObj[];
-  } 
+  const initialState: initState = {
+      cards: []
+  }
 
   const homeCardsSlice = createSlice({
     name: 'homeCardSlice',
-    initialState: { cards: [] } as cardArr,
+    initialState,
     reducers: {
-      setCards(state, action: PayloadAction<any> ) {
+      // reducer defines and receives the state to be received  
+      setCards(state, action: PayloadAction<any[]> ) {
+        console.log('Dispatched state' + state)
         state.cards = action.payload
       }
     }

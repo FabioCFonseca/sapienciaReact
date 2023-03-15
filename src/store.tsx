@@ -7,3 +7,5 @@ export const store = configureStore({
         homeCards: homeCardSliceReducer
     },
   })
+
+  console.log('Reducer initial state' + store.getState().homeCards.cards)
