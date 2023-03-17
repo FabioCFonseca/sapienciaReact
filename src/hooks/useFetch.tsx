@@ -1,47 +1,36 @@
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
 import {db} from '../config/config';
 import { collection, getDocs } from 'firebase/firestore';
 import { useDispatch } from 'react-redux';
 import { setCards } from '../components/homecards/homeCardsSlice';
 
+interface ArticleObj {
+  author: string;
+  description: string;
+  text: string;
+  title: string;
+}
 
 const useFetch = () => {
-    const dispatch = useDispatch()
+  const dispatch = useDispatch()
+  const collectionRef  = collection(db, "artigos");
+    
+  const fetchArticle = async () => {
+    try{
+      const articleDoc = await getDocs(collectionRef) 
+      const article = articleDoc.docs.map((doc) => ({...doc.data()} as ArticleObj))
+      dispatch(setCards(article))    
+    } catch (error) {
+        console.log('Data base fetch error' + error)
+    }      
+  };
 
-    //const [data, setData] = useState<any>([]);
-    const infoCollection = collection(db, "artigos");
-
-    useEffect(() => {
-        const getInfo = async () => {
-            const data = await getDocs(infoCollection) 
-            const data2 = data.docs.map((doc) => ({...doc.data()}))
-
-            //Dispatches the state throught the 'setCards' reducer  
-            dispatch(setCards(data2)) 
-            
-            //setData(data.docs.map((doc) => ({...doc.data()}))) 
-            console.log(data2) 
-        };
-        
-        getInfo(); 
-      }, []);
-
-  
+  useEffect(() => {
+    fetchArticle();
+  }, [collectionRef]);
 } 
 
 export default useFetch
 
-
-//interface articleObj {
-//     author: string;
-//     creationDate: {
-//       seconds: number;
-//       nanoseconds: number;
-//     };
-//     description: string;
-//     id: string;
-//     text: string;
-//     title: string;
-//   }
 
 

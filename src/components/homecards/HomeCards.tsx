@@ -3,12 +3,6 @@ import { useSelector } from 'react-redux'
 
 const HomeCards = () => {
   const articlesObj = useSelector((state: any) => state.homeCards.cards)
-  console.log('Selector state' + articlesObj)
-  articlesObj.map((item: any) => console.log(`Name: ${item.author}, Age: ${item.description}`));
-
-  
-  
-  
 
   return (
     <div className='grid grid-cols-1 pt-5 px-4 md:grid-cols-3 md:gap-3 md:max-w-[1240px] md:mx-auto'>

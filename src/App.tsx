@@ -6,6 +6,7 @@ import useFetch from './hooks/useFetch'
 
 function App() {
   useFetch()
+  
   return (
     <>
       <Navbar />
