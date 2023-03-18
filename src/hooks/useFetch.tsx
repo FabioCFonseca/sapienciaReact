@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 import { setCards } from '../components/homecards/homeCardsSlice';
 
 interface ArticleObj {
+  id: string,
   author: string;
   description: string;
   text: string;
@@ -18,7 +19,7 @@ const useFetch = () => {
   const fetchArticle = async () => {
     try{
       const articleDoc = await getDocs(collectionRef) 
-      const article = articleDoc.docs.map((doc) => ({...doc.data()} as ArticleObj))
+      const article = articleDoc.docs.map((doc) => ({...doc.data(), id: doc.id} as ArticleObj))
       dispatch(setCards(article))    
     } catch (error) {
         console.log('Data base fetch error' + error)

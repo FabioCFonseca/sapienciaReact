@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 
   interface articleObj {
+    id: string,
      author: string;
      description: string;
      text: string;
