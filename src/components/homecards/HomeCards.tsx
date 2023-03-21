@@ -1,8 +1,11 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { RootState } from '../../store';
 
 const HomeCards = () => {
-  const articlesObj = useSelector((state: any) => state.homeCards.cards)
+  const articlesObj = useSelector((state: RootState) => state.homeCards.cards)
+  let navigate = useNavigate()
 
   return (
     <div className='grid grid-cols-1 pt-5 px-4 md:grid-cols-3 md:gap-3 md:max-w-[1240px] md:mx-auto'>
@@ -13,6 +16,8 @@ const HomeCards = () => {
           <div className="p-4">
             <h2 className="text-2xl font-bold mb-2">{mapItem.title}</h2>
             <p className="text-gray-700">{mapItem.description}</p>
+            <button onClick={() => {
+              navigate(`/articles/${mapItem.id}`)}}>Ler Artigo</button>
           </div>
         </div>
       </div>

@@ -12,7 +12,8 @@ function App() {
       <Navbar />
       <Routes>
         <Route path='/' element={<Home />} />
-        <Route path='/articles' element={<Articles />} />
+        <Route path='/articles/:idurl' element={<Articles />}/>
+        {/* <Route path='*' element={<ErrorPage />}/> */}
       </Routes>  
     </>
   );
