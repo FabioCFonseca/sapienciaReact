@@ -1,20 +1,10 @@
 import React, { useState } from 'react'
-import { addDoc, collection } from 'firebase/firestore'
-import { db } from '../../config/config'
 
 const CommentBox = () => {
   const [comment, setComment] = useState<string>('')
-
-  const commentRef = collection(db, 'comentário')  
  
-  const submitComment = async(event: React.FormEvent<HTMLFormElement>) => {
+  const submitComment = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    await addDoc(commentRef, {
-      comment: comment,
-      //TODO ADD ID GENERATOR FOR TS
-      id: '55',
-      username: 'eu'
-    })
     console.log('submited')
   }  
 
