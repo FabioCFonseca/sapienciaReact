@@ -4,7 +4,7 @@ import { db } from '../../config/config'
 
 const commentRef = collection(db, 'comentário')
 
-addDoc(commentRef, {name: 1}) 
+
 
 interface commentObj {
     id: string,
@@ -25,12 +25,11 @@ const initialState: State = {
     name: 'commentSlice',
     initialState,
     reducers: {  
-    //   addComments: async(state, action: PayloadAction<commentObj>) {
-    //     await commentRef.add(action.payload)
-    //     state.comments.push(action.payload)
-    //   }
-    }
-  })
+        addComments: (state, action: PayloadAction<any>) => {
+            addDoc(commentRef, action.payload)
+        } 
+   }
+   })
 
 //export const { addComments } = commentSlice.actions
 
