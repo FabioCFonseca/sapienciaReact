@@ -24,7 +24,7 @@ interface articleObj {
 
 
 // ACTION
-  export const getArticles = createAsyncThunk(
+  export const getArticles: any = createAsyncThunk(
     'articles/fetchAllArticles', 
     async (thunkAPI) => {
         const collectionRef  = collection(db, 'artigos');
