@@ -1,11 +1,19 @@
+import { collection, addDoc } from 'firebase/firestore'
 import React, { useState } from 'react'
+import { useDispatch } from 'react-redux'
+import { db } from '../../config/config'
+import { addComments } from './CommentSlice'
+
 
 const CommentBox = () => {
+
+    
   const [comment, setComment] = useState<string>('')
+  const disptach = useDispatch()
  
   const submitComment = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault()
-    console.log('submited')
+    disptach(addComments(comment))
   }  
 
   return (

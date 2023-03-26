@@ -16,6 +16,8 @@ import { createSlice, PayloadAction } from "@reduxjs/toolkit"
       cards: []
   }
 
+  
+
   const homeCardsSlice = createSlice({
     name: 'homeCardSlice',
     initialState,

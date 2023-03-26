@@ -1,10 +1,12 @@
 import { configureStore } from '@reduxjs/toolkit'
 import homeCardSliceReducer from './components/homecards/homeCardsSlice'
+import articleSliceReducer from './articles/Articles.actions'
 
 
 export const store = configureStore({
     reducer: {
-        homeCards: homeCardSliceReducer
+        homeCards: homeCardSliceReducer,
+        articles: articleSliceReducer 
     },
   })
 
