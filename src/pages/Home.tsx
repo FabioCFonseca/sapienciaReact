@@ -1,12 +1,11 @@
 import React from 'react'
-import HomeCards from '../components/homecards/HomeCards'
+import ArticlesCards from '../articles/ArticlesCards'
 import CommentBox from '../features/comments/CommentBox'
 
 const Home = () => {
   return (
     <div>
-      <h1>Home</h1>
-     
+      <ArticlesCards />
       <CommentBox/>
     </div>
   )
